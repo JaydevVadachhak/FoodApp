@@ -1,0 +1,9 @@
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action" aria-current="true" (click)="onRecipeSelect()">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+      <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive" style="max-height: 50px;">
+    </div>
+    <p class="list-group-item-text">{{recipe.description}}</p>
+  </a>
+</div>

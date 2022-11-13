@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'FoodApp';
+  title: String = 'FoodApp';
+  selectedTabMenu: string = '';
+
+  onNavigateTabMenu(tabMenu: string) {
+    this.selectedTabMenu = tabMenu;
+  }
 }
