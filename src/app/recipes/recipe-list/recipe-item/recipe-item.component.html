@@ -1,5 +1,5 @@
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action" aria-current="true" (click)="onRecipeSelect()">
+  <a class="list-group-item list-group-item-action" aria-current="true" style="{cursor: pointer}" [routerLink]="[index]" routerLinkActive="active">
     <div class="d-flex w-100 justify-content-between">
       <h4 class="list-group-item-heading">{{recipe.name}}</h4>
       <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive" style="max-height: 50px;">
