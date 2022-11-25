@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: String = 'FoodApp';
   selectedTabMenu: string = '';
-
-  onNavigateTabMenu(tabMenu: string) {
-    this.selectedTabMenu = tabMenu;
-  }
 }
