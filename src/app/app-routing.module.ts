@@ -5,6 +5,8 @@ import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
 import {RecipeStartComponent} from "./recipes/recipe-start/recipe-start.component";
 import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.component";
 import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
+import {FormComponent} from "./form/form.component";
+import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 
 const routes: Routes = [
   {
@@ -37,6 +39,14 @@ const routes: Routes = [
   {
     path: 'shopping-list',
     component: ShoppingListComponent
+  },
+  {
+    path: 'td-form',
+    component: FormComponent
+  },
+  {
+    path: 'reactive-form',
+    component: ReactiveFormComponent
   }
 ];
 
