@@ -1,1 +1,30 @@
-<p>reactive-form works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <div formGroupName="userData">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+          <div id="emailHelp" class="form-text text-danger" *ngIf="!loginForm.get('userData.email')?.valid && loginForm.get('userData.email')?.touched">Please Enter Valid Email Address</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+          <div id="passwordHelp" class="form-text text-danger" *ngIf="!loginForm.get('userData.password')?.valid && loginForm.get('userData.password')?.touched">Please Enter Password</div>
+        </div>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="update">
+        <label class="form-check-label" for="exampleCheck1">Want to Receive Updates?</label>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-light" type="button" (click)="addHobby()">Add Hobby</button>
+      </div>
+      <div class="mb-3" *ngFor="let control of getControls(); let i = index" formArrayName="hobbies">
+        <label for="exampleInputPassword1" class="form-label">{{'Hobby ' + (i+1)}}</label>
+        <input type="text" class="form-control" id="{{'exampleInputHobby'+i}}" [formControlName]="i">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
