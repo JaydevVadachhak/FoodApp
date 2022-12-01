@@ -16,7 +16,7 @@ export class ReactiveFormComponent implements OnInit {
     this.loginForm = new FormGroup({
       'userData': new FormGroup({
         'email': new FormControl(null, [Validators.required, Validators.email]),
-        'password': new FormControl(null, Validators.required),
+        'password': new FormControl(null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]),
       }),
       'update': new FormControl(false),
       'hobbies': new FormArray([]),
@@ -36,4 +36,5 @@ export class ReactiveFormComponent implements OnInit {
   getControls() {
     return (<FormArray>this.loginForm.get('hobbies')).controls;
   }
+
 }

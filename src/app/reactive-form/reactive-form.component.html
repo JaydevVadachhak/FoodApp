@@ -5,12 +5,26 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
-          <div id="emailHelp" class="form-text text-danger" *ngIf="!loginForm.get('userData.email')?.valid && loginForm.get('userData.email')?.touched">Please Enter Valid Email Address</div>
+          <div id="emailHelp" class="form-text text-danger" *ngIf="!loginForm.get('userData.email')?.valid && loginForm.get('userData.email')?.touched">
+            <span *ngIf="loginForm.get('userData.email')?.errors?.['required']">Email is Required</span>
+            <span *ngIf="loginForm.get('userData.email')?.errors?.['email']">Enter Valid Email Address</span>
+          </div>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
-          <div id="passwordHelp" class="form-text text-danger" *ngIf="!loginForm.get('userData.password')?.valid && loginForm.get('userData.password')?.touched">Please Enter Password</div>
+          <div id="passwordHelp" class="form-text text-danger" *ngIf="!loginForm.get('userData.password')?.valid && loginForm.get('userData.password')?.touched">
+            <span *ngIf="loginForm.get('userData.password')?.errors?.['pattern']">
+              <ul>
+                <li>Password must have minimum 8 Characters</li>
+                <li>Password Must Contain at least 1 Special Character</li>
+                <li>Password Must Contain at least 1 Uppercase Letter</li>
+                <li>Password Must Contain at least 1 Lowercase Letter</li>
+                <li>Password Must Contain at least 1 Number</li>
+              </ul>
+            </span>
+            <span *ngIf="loginForm.get('userData.password')?.errors?.['required']">Password is Required</span>
+          </div>
         </div>
       </div>
       <div class="mb-3 form-check">
