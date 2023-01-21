@@ -1,1 +1,65 @@
-<p>recipe-edit works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmitForm()">
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-success" type="submit" [disabled]="!recipeForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" formControlName="name" required>
+<!--            <div id="nameHelp" class="form-text text-danger" *ngIf="!name.valid && name.touched">Please Enter Name</div>-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="imagePath" class="form-label">Image Path</label>
+            <input type="text" class="form-control" id="imagePath" aria-describedby="imagePathHelp" name="imagePath" formControlName="imagePath" #imagePath required>
+<!--            <div id="imagePathHelp" class="form-text text-danger" *ngIf="!imagePath.valid && imagePath.touched">Please Enter Image Path</div>-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <img [src]="imagePath.value" [alt]="imagePath.value" class="img-responsive" style="max-height: 200px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" class="form-control" id="description" aria-describedby="descriptionHelp" name="description" formControlName="description" required rows="6"></textarea>
+<!--            <div id="descriptionHelp" class="form-text text-danger" *ngIf="!description.valid && description.touched">Please Enter Description</div>-->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" formArrayName="ingredients">
+          <div class="row" *ngFor="let ingredientCtrl of getIngredientControls; let i = index" [formGroupName]="i">
+            <div class="col-md-8">
+              <input type="text" class="form-control" name="name" formControlName="name">
+            </div>
+            <div class="col-md-2">
+              <input type="number" class="form-control" min="1" pattern="^[1-9]+[0-9]*$" id="amount" name="amount" formControlName="amount">
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-danger" (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

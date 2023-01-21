@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <img src="{{selectedRecipeDetail.imagePath}}" alt="" class="img-responsive" style="max-height: 200px;">
+    <img src="{{selectedRecipeDetail.imagePath}}" alt="{{selectedRecipeDetail.name}}" class="img-responsive" style="max-height: 200px;">
   </div>
 </div>
 <div class="row">
@@ -17,7 +17,7 @@
       <ul ngbDropdownMenu aria-labelledby="dropdownBasic1">
         <li><a ngbDropdownItem (click)="onAddToShoppingList()">Add Ingredients to Shopping List</a></li>
         <li><a ngbDropdownItem (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a ngbDropdownItem>Delete Recipe</a></li>
+        <li><a ngbDropdownItem (click)="onDeleteRecipe()">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
