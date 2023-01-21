@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import {IngredientModel} from "../../shared/ingredient.model";
+import {IngredientModel} from "../../shared/model/ingredient.model";
 import {ShoppingListService} from "../shopping-list.service";
 
 @Component({

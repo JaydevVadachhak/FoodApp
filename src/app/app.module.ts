@@ -17,6 +17,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
+import { ReversePipe } from './shared/pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     RecipeStartComponent,
     RecipeEditComponent,
     FormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    EllipsisPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
