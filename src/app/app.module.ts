@@ -19,6 +19,7 @@ import { FormComponent } from './form/form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 import { ReversePipe } from './shared/pipes/reverse.pipe';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReversePipe } from './shared/pipes/reverse.pipe';
     ReversePipe
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

@@ -10,28 +10,35 @@ import {Subject} from "rxjs";
 export class RecipesService {
 
   recipesChanged = new Subject<RecipeModel[]>();
-  private recipes: RecipeModel[] = [
-    new RecipeModel(
-      'Test Recipe 1',
-      'Test 1',
-      'https://static.onecms.io/wp-content/uploads/sites/44/2022/03/01/cucumber-sandwich.jpg',
-      [
-        new IngredientModel('Meat', 10),
-        new IngredientModel('Apples', 6),
-      ]
-    ),
-    new RecipeModel(
-      'Test Recipe 2',
-      'Test 2',
-      'https://static.onecms.io/wp-content/uploads/sites/44/2022/03/01/cucumber-sandwich.jpg',
-      [
-        new IngredientModel('Potatoes', 20),
-        new IngredientModel('Pineapples', 5)
-      ]
-    ),
-  ];
+  // private recipes: RecipeModel[] = [
+  //   new RecipeModel(
+  //     'Test Recipe 1',
+  //     'Test 1',
+  //     'https://static.onecms.io/wp-content/uploads/sites/44/2022/03/01/cucumber-sandwich.jpg',
+  //     [
+  //       new IngredientModel('Meat', 10),
+  //       new IngredientModel('Apples', 6),
+  //     ]
+  //   ),
+  //   new RecipeModel(
+  //     'Test Recipe 2',
+  //     'Test 2',
+  //     'https://static.onecms.io/wp-content/uploads/sites/44/2022/03/01/cucumber-sandwich.jpg',
+  //     [
+  //       new IngredientModel('Potatoes', 20),
+  //       new IngredientModel('Pineapples', 5)
+  //     ]
+  //   ),
+  // ];
+
+  private recipes: RecipeModel[] = [];
 
   constructor(private shoppingListService: ShoppingListService) { }
+
+  setRecipes(recipes: RecipeModel[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes);
+  }
 
   getRecipes() {
     return this.recipes.slice();
