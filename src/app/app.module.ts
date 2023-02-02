@@ -20,6 +20,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 import { ReversePipe } from './shared/pipes/reverse.pipe';
 import {HttpClientModule} from "@angular/common/http";
+import { AuthComponent } from './auth/auth.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import {HttpClientModule} from "@angular/common/http";
     FormComponent,
     ReactiveFormComponent,
     EllipsisPipe,
-    ReversePipe
+    ReversePipe,
+    AuthComponent,
+    SpinnerComponent
   ],
   imports: [
     HttpClientModule,

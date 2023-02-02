@@ -8,6 +8,7 @@ import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
 import {FormComponent} from "./form/form.component";
 import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 import {RecipesResolver} from "./recipes/recipes.resolver";
+import {AuthComponent} from "./auth/auth.component";
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'reactive-form',
     component: ReactiveFormComponent
+  },
+  {
+    path: 'auth',
+    component: AuthComponent
   }
 ];
 
