@@ -6,16 +6,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" aria-current="page" routerLink="/recipes" routerLinkActive="active">Recipes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/auth" routerLinkActive="active">Authenticate</a>
-        </li>
-        <li ngbDropdown class="nav-item d-inline-block">
+        <li ngbDropdown class="nav-item d-inline-block" *ngIf="isAuthenticated">
           <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
             Manage
           </a>
@@ -23,6 +20,12 @@
             <li><a ngbDropdownItem (click)="onSaveData()">Save Data</a></li>
             <li><a ngbDropdownItem (click)="onFetchData()">Fetch Data</a></li>
           </ul>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="/auth" routerLinkActive="active">Authenticate</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" (click)="onLogOut()">LogOut</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

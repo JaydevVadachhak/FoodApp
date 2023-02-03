@@ -9,6 +9,7 @@ import {FormComponent} from "./form/form.component";
 import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 import {RecipesResolver} from "./recipes/recipes.resolver";
 import {AuthComponent} from "./auth/auth.component";
+import {AuthGuard} from "./auth/auth.guard";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: 'recipes',
     component: RecipesComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -46,10 +48,12 @@ const routes: Routes = [
   },
   {
     path: 'td-form',
+    canActivate: [AuthGuard],
     component: FormComponent
   },
   {
     path: 'reactive-form',
+    canActivate: [AuthGuard],
     component: ReactiveFormComponent
   },
   {
