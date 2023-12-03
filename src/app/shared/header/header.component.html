@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Food App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" aria-current="page" routerLink="/recipes" routerLinkActive="active">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
+        </li>
+        <li ngbDropdown class="nav-item d-inline-block" *ngIf="isAuthenticated">
+          <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+            Manage
+          </a>
+          <ul ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <li><a ngbDropdownItem (click)="onSaveData()">Save Data</a></li>
+            <li><a ngbDropdownItem (click)="onFetchData()">Fetch Data</a></li>
+          </ul>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+          <a class="nav-link" routerLink="/auth" routerLinkActive="active">Authenticate</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+          <a class="nav-link" (click)="onLogOut()">LogOut</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
