@@ -4,13 +4,17 @@
       <div class="" ngModelGroup="userData">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel name="email" required email #email="ngModel">
-          <div id="emailHelp" class="form-text text-danger" *ngIf="!email.valid && email.touched">Please Enter Valid Email Address</div>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel
+            name="email" required email #email="ngModel">
+          <div id="emailHelp" class="form-text text-danger" *ngIf="!email.valid && email.touched">Please Enter Valid
+            Email Address</div>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" ngModel name="password" required #password="ngModel">
-          <div id="passwordHelp" class="form-text text-danger" *ngIf="!password.valid && password.touched">Please Enter Password</div>
+          <input type="password" class="form-control" id="exampleInputPassword1" ngModel name="password" required
+            #password="ngModel">
+          <div id="passwordHelp" class="form-text text-danger" *ngIf="!password.valid && password.touched">Please Enter
+            Password</div>
         </div>
       </div>
       <div class="mb-3 form-check">
@@ -26,20 +30,20 @@
   <div class="col-md-12">
     <table class="table">
       <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Email</th>
-        <th scope="col">Password</th>
-        <th scope="col">Want to Receive Update?</th>
-      </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Want to Receive Update?</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>{{userData.email}}</td>
-        <td>{{userData.password}}</td>
-        <td>{{userData.update ? 'Yes' : 'No'}}</td>
-      </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>{{userData.email}}</td>
+          <td>{{userData.password}}</td>
+          <td>{{userData.update ? 'Yes' : 'No'}}</td>
+        </tr>
       </tbody>
     </table>
   </div>
