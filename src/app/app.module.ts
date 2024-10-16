@@ -7,6 +7,7 @@ import { HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
 import {CoreModule} from "./core.module";
 import {FormsDemoModule} from "./forms/forms-demo.module";
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,12 @@ import {FormsDemoModule} from "./forms/forms-demo.module";
     CoreModule,
     FormsDemoModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
